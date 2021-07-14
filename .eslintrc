@@ -1,4 +1,5 @@
 {
+    "root": true,
     "env": {
         "browser": true,
         "es2021": true
@@ -18,5 +19,7 @@
         "react"
     ],
     "rules": {
+        "semi": "warn",
+        "no-unused-vars": "warn"
     }
 }
