@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import loginbanner from "../../assets/loginbanner.jpg";
+import loginbanner from "../../assets/images/loginbanner.jpg";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
 // import eye from "../../assets/eye.svg";
-import eyeFill from "../../assets/eye-fill.svg";
+import eyeFill from "../../assets/icons/eye-fill.svg";
 // import eyeSlash from "../../assets/eye-slash.svg";
-import eyeFillSlash from "../../assets/eye-slash-fill.svg";
+import eyeFillSlash from "../../assets/icons/eye-slash-fill.svg";
 
 function Signup() {
 

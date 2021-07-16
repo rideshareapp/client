@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import loginbanner from "../../assets/loginbanner.jpg";
+import loginbanner from "../../assets/images/loginbanner.jpg";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
 
