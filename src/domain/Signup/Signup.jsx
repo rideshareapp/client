@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import loginbanner from "../../assets/images/loginbanner.jpg";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
-// import eye from "../../assets/eye.svg";
+import eye from "../../assets/icons/eye.svg";
 import eyeFill from "../../assets/icons/eye-fill.svg";
-// import eyeSlash from "../../assets/eye-slash.svg";
+import eyeSlash from "../../assets/icons/eye-slash.svg";
 import eyeFillSlash from "../../assets/icons/eye-slash-fill.svg";
+import styles from "../../components/LogInSignUp.module.css";
+import LogInSignUpGrid from "../../components/LogInSignUp";
 
 function Signup() {
 
@@ -58,51 +59,42 @@ function Signup() {
 
     }
 
-    return (
-        <div className="signup">
-            <div className="container">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-6">
-                            <img className="img-fluid rounded mb-4 mb-lg-0" src={loginbanner} alt="Login banner" />
-                        </div>
-                        <div className="col-6">
-                            <h1 className="font-weight-light">Sign Up</h1>
-                            <form onSubmit={handleSubmit}>
+    let form =
+        <form style={{ margin: "0 auto" }} className={styles.form} onSubmit={handleSubmit}>
 
-                                <div className="form-group">
-                                    <label htmlFor="firstInput" >First Name</label>
-                                    <input autoFocus type="text" className="form-control" id="firstInput" aria-describedby="firstHelp" placeholder="First Name" onChange={(e) => setFirst(e.target.value)}></input>
-                                </div>
+            <div>
+                <label htmlFor="firstInput" >First Name</label>
+                <input autoFocus type="text" className={`${styles.inputTypeText} ${styles.inputField}`} id="firstInput" aria-describedby="firstHelp" onChange={(e) => setFirst(e.target.value)}></input>
+            </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="lastInput" >Last Name</label>
-                                    <input type="text" className="form-control" id="lastInput" aria-describedby="lastHelp" placeholder="Last Name" onChange={(e) => setLast(e.target.value)}></input>
-                                </div>
+            <div>
+                <label htmlFor="lastInput" >Last Name</label>
+                <input type="text" id="lastInput" className={`${styles.inputTypeText} ${styles.inputField}`} aria-describedby="lastHelp" onChange={(e) => setLast(e.target.value)}></input>
+            </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="phoneInput" >Phone Number</label>
-                                    <input type="tel" className="form-control" id="phoneInput" aria-describedby="phoneHelp" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={(e) => setPhone(e.target.value)}></input>
-                                </div>
+            <div>
+                <label htmlFor="phoneInput" >Phone Number</label>
+                <input type="tel" id="phoneInput" className={`${styles.inputTypeTel} ${styles.inputField}`} aria-describedby="phoneHelp" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={(e) => setPhone(e.target.value)}></input>
+            </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="emailInput" >Email Address</label>
-                                    <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="example@email.com" onChange={(e) => setEmail(e.target.value)}></input>
-                                </div>
+            <div>
+                <label htmlFor="emailInput" >Email Address</label>
+                <input type="email" id="emailInput" className={`${styles.inputTypeEmail} ${styles.inputField}`} aria-describedby="emailHelp" placeholder="example@email.com" onChange={(e) => setEmail(e.target.value)}></input>
+            </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="passwordInput">Password</label>
-                                    <input type={showPassword ? "test" : "password"} className="form-control" id="passwordInput" placeholder="•••••" onChange={(e) => setPassword(e.target.value)}></input>
-                                    <img id="togglePassword" src={showPassword ? eyeFillSlash : eyeFill} onClick={handleShowPassword}></img>
-                                </div>
-
-                                <button type="submit" className="btn btn-primary" disabled={!validateForm()}>Next</button>
-                            </form>
-                        </div>
-                    </div>
+            <div style={{ position: "relative" }}>
+                <label htmlFor="passwordInput">Password</label>
+                <div className={styles.passwordField}>
+                    <input type={showPassword ? "text" : "password"} style={{ width: "90%", borderRadius: "5px 0px 0px 5px" }} className={`${styles.inputTypePassword} ${styles.inputFieldPassword}`} id="passwordInput" placeholder="•••••" onChange={(e) => setPassword(e.target.value)}></input>
+                    <img id="togglePassword" className={styles.togglePassword} src={showPassword ? eyeSlash : eye} onClick={handleShowPassword}></img>
                 </div>
             </div>
-        </div>
+
+            <button className={styles.buttonTypeSubmit} type="submit" disabled={!validateForm()}>Next</button>
+        </form >;
+
+    return (
+        <LogInSignUpGrid prompt1="Already a member?" prompt2="/login" prompt3="Log in here" form={form} />
     );
 }
 
