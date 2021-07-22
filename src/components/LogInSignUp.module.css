@@ -1,19 +1,49 @@
 :root {
-    --grid-width: 40%;
+    --grid-width-large: 40%;
+    --grid-width-medium: 60%;
+    --grid-width-small: 100%
 }
 
-.wrapper {
-    position: relative;
-    display: grid;
-    grid-template-columns: var(--grid-width) 1fr;
-    height: 100vh;
+@media only screen and (min-width:0px) and (max-width:800px) {
+    .wrapper {
+        position: relative;
+        display: grid;
+        grid-template-columns: var(--grid-width-small) 1fr;
+        height: 100vh;
+    }
+    .image {
+        visibility: hidden;
+    }
 }
 
-.image {
-    grid-column: 2;
-    grid-row: 1;
-    overflow: hidden;
-    user-select: none;
+@media only screen and (min-width:800px) and (max-width:1200px) {
+    .wrapper {
+        position: relative;
+        display: grid;
+        grid-template-columns: var(--grid-width-medium) 1fr;
+        height: 100vh;
+    }
+    .image {
+        grid-column: 2;
+        grid-row: 1;
+        overflow: hidden;
+        user-select: none;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    .wrapper {
+        position: relative;
+        display: grid;
+        grid-template-columns: var(--grid-width-large) 1fr;
+        height: 100vh;
+    }
+    .image {
+        grid-column: 2;
+        grid-row: 1;
+        overflow: hidden;
+        user-select: none;
+    }
 }
 
 .image img {
@@ -87,7 +117,7 @@
 
 .buttonTypeSubmit {
     width: 100%;
-    background-color: #787EA2;
+    background-color: #55648D;
     color: white;
     padding: 1rem 1rem;
     margin: 8px 0;
@@ -97,7 +127,7 @@
 }
 
 .buttonTypeSubmit:hover {
-    background-color: #55648D;
+    background-color: #787EA2;
 }
 
 .inputField:hover, .inputField:focus {
@@ -139,11 +169,8 @@ label {
 }
 
 .prompt {
-    position: absolute;
-    margin: 0 auto;
-    width: var(--grid-width);
+    margin: 10vh auto;
     text-align: center;
     font-size: 0.9rem;
     font-weight: 300;
-    bottom: 10vh;
 }
