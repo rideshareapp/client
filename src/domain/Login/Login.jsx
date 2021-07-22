@@ -6,7 +6,7 @@ import styles from "../../components/LogInSignUp.module.css";
 import LogInSignUpGrid from "../../components/LogInSignUp";
 
 function Login() {
-
+    document.title = "Rideshareapp | Log In";
     const history = useHistory();
     const { userIsAuthenticated } = useAppContext();
     const [email, setEmail] = useState("");

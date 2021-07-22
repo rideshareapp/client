@@ -1,6 +1,7 @@
 import React from "react";
 
 function Dashboard() {
+    document.title = "Rideshareapp | Dashboard";
     return (
         <div className="dashboard">
             <div className="container">

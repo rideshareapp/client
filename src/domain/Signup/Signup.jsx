@@ -10,7 +10,7 @@ import styles from "../../components/LogInSignUp.module.css";
 import LogInSignUpGrid from "../../components/LogInSignUp";
 
 function Signup() {
-
+    document.title = "Rideshareapp | Sign Up";
     const history = useHistory();
     const { userIsAuthenticated } = useAppContext();
     const [first, setFirst] = useState("");
