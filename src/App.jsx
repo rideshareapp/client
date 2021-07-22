@@ -47,7 +47,8 @@ function App() {
         !isAuthenticating && (
             <div className="App">
                 <Router>
-                    {isAuthenticated ? <Navigation.isAuthNav /> : <Navigation.isNotAuthNav />}
+                    {/* {isAuthenticated ? <Navigation.isAuthNav /> : <Navigation.isNotAuthNav />} */}
+                    {isAuthenticated ? <Navigation.isAuthNav /> : null}
                     <Switch>
                         <AppContext.Provider value={{ isAuthenticated, userIsAuthenticated }}>
                             <Route exact path="/">
@@ -62,7 +63,7 @@ function App() {
                         </AppContext.Provider>
 
                     </Switch>
-                    <Footer />
+                    {/* <Footer /> */}
                 </Router>
             </div>
         )
