@@ -6,7 +6,7 @@ import eye from "../../assets/icons/eye.svg";
 import eyeSlash from "../../assets/icons/eye-slash.svg";
 // import eyeFill from "../../assets/icons/eye-fill.svg";
 // import eyeFillSlash from "../../assets/icons/eye-slash-fill.svg";
-import styles from "../../components/LogInSignUp.module.css";
+import styles from "../../components/LogInSignUpGrid/LogInSignUp.module.css";
 import { LogInSignUpGrid } from "../../components";
 
 function Signup() {

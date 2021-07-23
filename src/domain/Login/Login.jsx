@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
-import styles from "../../components/LogInSignUp.module.css";
+import styles from "../../components/LogInSignUpGrid/LogInSignUp.module.css";
 import { LogInSignUpGrid } from "../../components";
 
 function Login() {
