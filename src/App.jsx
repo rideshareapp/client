@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 // import { Navigation, Footer, Home, About, Contact } from "./components";
-import { Footer, Navigation } from "./components";
+import { Navigation } from "./components";
 import { Login, Logout, Signup, Dashboard, Page } from "./domain";
 import { AppContext } from "./libs/contextLib";
 import "./App.css";
@@ -63,7 +63,6 @@ function App() {
                         </AppContext.Provider>
 
                     </Switch>
-                    {/* <Footer /> */}
                 </Router>
             </div>
         )
