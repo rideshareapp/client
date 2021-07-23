@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
 import styles from "../../components/LogInSignUp.module.css";
-import LogInSignUpGrid from "../../components/LogInSignUp";
+import { LogInSignUpGrid } from "../../components";
 
 function Login() {
     document.title = "Rideshareapp | Log In";
@@ -54,7 +54,7 @@ function Login() {
                 <input type="password" className={`${styles.inputTypePassword} ${styles.inputField}`} id="passwordInput" onChange={(e) => setPassword(e.target.value)}></input>
             </div>
 
-            <button className={styles.buttonTypeSubmit} type="submit" disabled={!validateForm()}>Next</button>
+            <button className={styles.buttonTypeSubmit} type="submit" disabled={!validateForm()}>Log in</button>
         </form >;
 
     return (

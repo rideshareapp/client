@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
 import eye from "../../assets/icons/eye.svg";
-import eyeFill from "../../assets/icons/eye-fill.svg";
 import eyeSlash from "../../assets/icons/eye-slash.svg";
-import eyeFillSlash from "../../assets/icons/eye-slash-fill.svg";
+// import eyeFill from "../../assets/icons/eye-fill.svg";
+// import eyeFillSlash from "../../assets/icons/eye-slash-fill.svg";
 import styles from "../../components/LogInSignUp.module.css";
-import LogInSignUpGrid from "../../components/LogInSignUp";
+import { LogInSignUpGrid } from "../../components";
 
 function Signup() {
     document.title = "Rideshareapp | Sign Up";
@@ -52,6 +52,9 @@ function Signup() {
                 userIsAuthenticated(true);
                 history.push("/");
             }
+            if (res.status === 409) {
+                alert("User already exists");
+            }
         } catch (err) {
             alert(err);
             // setIsLoading(false);
@@ -74,7 +77,7 @@ function Signup() {
 
             <div>
                 <label htmlFor="phoneInput" >Phone Number</label>
-                <input type="tel" id="phoneInput" className={`${styles.inputTypeTel} ${styles.inputField}`} aria-describedby="phoneHelp" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={(e) => setPhone(e.target.value)}></input>
+                <input type="tel" id="phoneInput" className={`${styles.inputTypeTel} ${styles.inputField}`} aria-describedby="phoneHelp" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format: XXX-XXX-XXXX" onChange={(e) => setPhone(e.target.value)}></input>
             </div>
 
             <div>
@@ -90,7 +93,7 @@ function Signup() {
                 </div>
             </div>
 
-            <button className={styles.buttonTypeSubmit} type="submit" disabled={!validateForm()}>Next</button>
+            <button className={styles.buttonTypeSubmit} type="submit" disabled={!validateForm()}>Create account</button>
         </form >;
 
     return (
