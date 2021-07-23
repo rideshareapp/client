@@ -1,7 +1,12 @@
 :root {
     --grid-width-large: 40%;
     --grid-width-medium: 60%;
-    --grid-width-small: 100%
+    --grid-width-small: 100%;
+    --form-width-large: 60%;
+    --form-width-medium: 65%;
+    --form-width-small: 70%;
+    --hover-color: #ddd;
+    --box-shadow: 1px 1px 10px 5px var(--hover-color);
 }
 
 @media only screen and (min-width:0px) and (max-width:800px) {
@@ -14,9 +19,12 @@
     .image {
         visibility: hidden;
     }
+    .form {
+        width: var(--form-width-small);
+    }
 }
 
-@media only screen and (min-width:800px) and (max-width:1200px) {
+@media only screen and (min-width:800px) and (max-width:1500px) {
     .wrapper {
         position: relative;
         display: grid;
@@ -29,9 +37,12 @@
         overflow: hidden;
         user-select: none;
     }
+    .form {
+        width: var(--form-width-medium);
+    }
 }
 
-@media only screen and (min-width:1200px) {
+@media only screen and (min-width:1500px) {
     .wrapper {
         position: relative;
         display: grid;
@@ -43,6 +54,9 @@
         grid-row: 1;
         overflow: hidden;
         user-select: none;
+    }
+    .form {
+        width: var(--form-width-large);
     }
 }
 
@@ -70,7 +84,6 @@
 }
 
 .form {
-    width: 60%;
     margin: 20vh auto 30vh auto;
     /* margin: 0 auto; */
     /* margin: calc(100vh - 20vh - 1.5rem - 50vh - height) auto; */
@@ -100,6 +113,26 @@
     transition: 0.5s;
 }
 
+input[class^="LogInSignUp_inputType"]::placeholder {
+    opacity: 50%;
+}
+
+input[class^="LogInSignUp_inputType"]::-webkit-input-placeholder {
+    opacity: 50%;
+}
+
+input[class^="LogInSignUp_inputType"]::-moz-placeholder {
+    opacity: 50%;
+}
+
+input[class^="LogInSignUp_inputType"]:-ms-input-placeholder {
+    opacity: 50%;
+}
+
+input[class^="LogInSignUp_inputType"]:-moz-placeholder {
+    opacity: 50%;
+}
+
 .togglePassword {
     position: absolute;
     width: 10%;
@@ -126,12 +159,24 @@
     cursor: pointer;
 }
 
-.buttonTypeSubmit:hover {
+.buttonTypeSubmit:disabled {
+    /* pointer-events: none; */
+    /* background-color: #787EA2; */
+    opacity: 80%;
+}
+
+.buttonTypeSubmit:hover:disabled {
+    background-color: #55648D;
+    cursor: not-allowed;
+}
+
+.buttonTypeSubmit:hover, .buttonTypeSubmit:focus {
     background-color: #787EA2;
+    outline: none;
 }
 
 .inputField:hover, .inputField:focus {
-    box-shadow: 1px 1px 10px 5px #C5AAAF;
+    box-shadow: var(--box-shadow);
     background-color: white;
     outline: none;
 }
@@ -152,7 +197,7 @@
 
 .passwordField:hover, .passwordField:focus-within {
     border-radius: 5px;
-    box-shadow: 0px 1px 10px 5px #C5AAAF;
+    box-shadow: var(--box-shadow);
     background-color: white;
 }
 
@@ -169,7 +214,7 @@ label {
 }
 
 .prompt {
-    margin: 10vh auto;
+    margin: 10vh auto 5vh auto;
     text-align: center;
     font-size: 0.9rem;
     font-weight: 300;
