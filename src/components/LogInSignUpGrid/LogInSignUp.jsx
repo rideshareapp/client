@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
 import loginbanner from "../../assets/images/loginbanner1.jpg";
