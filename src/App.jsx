@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-// import { Navigation, Footer, Home, About, Contact } from "./components";
-import { Navigation } from "./components";
-import { Login, Logout, Signup, Dashboard, Page } from "./domain";
+import { Login, Logout, Signup, Dashboard, Page, NotFound } from "./domain";
 import { AppContext } from "./libs/contextLib";
 import "./App.css";
 
@@ -46,10 +44,9 @@ function App() {
     return (
         !isAuthenticating && (
             <div className="App">
-                <Router>
-                    {isAuthenticated ? <Navigation /> : null}
-                    <Switch>
-                        <AppContext.Provider value={{ isAuthenticated, userIsAuthenticated }}>
+                <AppContext.Provider value={{ isAuthenticated, userIsAuthenticated }}>
+                    <Router>
+                        <Switch>
                             <Route exact path="/">
                                 {isAuthenticated ? <Redirect to="/dashboard" /> : <Redirect to="/login" />}
                             </Route>
@@ -59,10 +56,11 @@ function App() {
                             <Route path="/dashboard" exact component={() => isAuthenticated ? <Dashboard /> : <Redirect to="/" />} />
                             <Route path="/logout" exact component={() => isAuthenticated ? <Logout /> : <Redirect to="/" />} />
                             <Route path="/page" exact component={() => isAuthenticated ? <Page /> : <Redirect to="/" />} />
-                        </AppContext.Provider>
+                            <Route component={NotFound} />
 
-                    </Switch>
-                </Router>
+                        </Switch>
+                    </Router>
+                </AppContext.Provider>
             </div>
         )
     );
