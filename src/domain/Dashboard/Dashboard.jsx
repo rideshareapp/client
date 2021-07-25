@@ -1,8 +1,10 @@
 import React from "react";
+import { MainAppGrid } from "../../components";
 
 function Dashboard() {
     document.title = "Rideshareapp | Dashboard";
-    return (
+
+    let content =
         <div className="dashboard">
             <div className="container">
                 <div className="row align-items-center my-5">
@@ -20,7 +22,10 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>;
+
+    return (
+        <MainAppGrid content={content} />
     );
 }
 
