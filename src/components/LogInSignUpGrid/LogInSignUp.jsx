@@ -17,7 +17,7 @@ function LogInSignUpGrid(props) {
                 </div>
                 {props.form}
                 <div className={styles.prompt} >
-                    <p>{props.prompt1} &#8211; <Link style={{}} to={props.prompt2}>{props.prompt3}</Link></p>
+                    <p>{props.prompt1} &#8211; <Link className={styles.promptLink} to={props.prompt2}>{props.prompt3}</Link></p>
                 </div>
             </div>
         </div>
