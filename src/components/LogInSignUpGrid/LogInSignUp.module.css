@@ -1,12 +1,13 @@
-:root {
+.wrapper {
     --grid-width-large: 40%;
     --grid-width-medium: 60%;
     --grid-width-small: 100%;
+}
+
+.form {
     --form-width-large: 60%;
     --form-width-medium: 65%;
     --form-width-small: 70%;
-    --hover-color: #ddd;
-    --box-shadow: 1px 1px 10px 5px var(--hover-color);
 }
 
 @media only screen and (min-width:0px) and (max-width:800px) {
@@ -99,6 +100,7 @@
     border-radius: 5px;
     box-sizing: border-box;
     transition: 0.5s;
+    overflow: visible
 }
 
 .inputTypeText, select {
@@ -111,6 +113,7 @@
     border-radius: 5px;
     box-sizing: border-box;
     transition: 0.5s;
+    overflow: visible;
 }
 
 input[class^="LogInSignUp_inputType"]::placeholder {
@@ -175,6 +178,11 @@ input[class^="LogInSignUp_inputType"]:-moz-placeholder {
     outline: none;
 }
 
+.passwordField:hover, .passwordField:focus-within, .inputField:hover, .inputField:focus {
+    --hover-color: #ddd;
+    --box-shadow: 1px 1px 10px 5px var(--hover-color);
+}
+
 .inputField:hover, .inputField:focus {
     box-shadow: var(--box-shadow);
     background-color: white;
@@ -193,6 +201,8 @@ input[class^="LogInSignUp_inputType"]:-moz-placeholder {
 .passwordField {
     margin-bottom: 1rem;
     transition: 0.5s;
+    border-radius: 5px;
+    background-color: #f1f1f1;
 }
 
 .passwordField:hover, .passwordField:focus-within {
@@ -209,13 +219,20 @@ input[class^="LogInSignUp_inputType"]:-moz-placeholder {
     background-color: white;
 }
 
-label {
-    font-weight: 500;
-}
-
 .prompt {
     margin: 10vh auto 5vh auto;
     text-align: center;
     font-size: 0.9rem;
     font-weight: 300;
+}
+
+.promptLink {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent
+}
+
+.promptLink:hover {
+    color: #0056b3;
+    text-decoration: underline
 }
