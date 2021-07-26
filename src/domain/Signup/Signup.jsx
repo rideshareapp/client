@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Prompt } from "react-router-dom";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
 import eye from "../../assets/icons/eye.svg";
@@ -8,7 +8,6 @@ import eyeSlash from "../../assets/icons/eye-slash.svg";
 // import eyeFillSlash from "../../assets/icons/eye-slash-fill.svg";
 import styles from "../../components/LogInSignUpGrid/LogInSignUp.module.css";
 import { LogInSignUpGrid } from "../../components";
-
 function Signup() {
     document.title = "Rideshareapp | Sign Up";
     const history = useHistory();
@@ -27,6 +26,10 @@ function Signup() {
 
     function validateForm() {
         return first.length > 0 && last.length > 0 && phone.length > 0 && email.length > 0 && password.length > 0;
+    }
+
+    function formStarted() {
+        return first.length > 0 || last.length > 0 || phone.length > 0 || email.length > 0 || password.length > 0;
     }
 
     async function handleSubmit(event) {
@@ -94,6 +97,7 @@ function Signup() {
             </div>
 
             <button className={styles.buttonTypeSubmit} type="submit" disabled={!validateForm()}>Create account</button>
+            <Prompt when={formStarted()} message="Are you sure you want to leave this page? Changes made to the form will be lost." />
         </form >;
 
     return (
