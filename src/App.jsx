@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { Login, Logout, Signup, Dashboard, Page, NotFound, Events, Requests } from "./domain";
+import { Login, Logout, Signup, Dashboard, NotFound, Events, Requests } from "./domain";
 import { AppContext } from "./libs/contextLib";
 import "./App.css";
 

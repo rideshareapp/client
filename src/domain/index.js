@@ -4,5 +4,4 @@ export { default as Dashboard } from "./Dashboard/Dashboard";
 export { default as Events } from "./Events/Events";
 export { default as Requests } from "./Requests/Requests";
 export { default as Logout } from "./Logout/Logout";
-export { default as Page } from "./Page2/page";
 export { default as NotFound } from "./404/404";
