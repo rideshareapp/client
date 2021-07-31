@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { Login, Logout, Signup, Dashboard, Page, NotFound } from "./domain";
+import { Login, Logout, Signup, Dashboard, Page, NotFound, Events, Requests } from "./domain";
 import { AppContext } from "./libs/contextLib";
 import "./App.css";
 
@@ -54,8 +54,9 @@ function App() {
                             <Route path="/signup" exact component={() => isAuthenticated ? <Redirect to="/" /> : <Signup />} />
 
                             <Route path="/dashboard" exact component={() => isAuthenticated ? <Dashboard /> : <Redirect to="/" />} />
+                            <Route path="/events" exact component={() => isAuthenticated ? <Events /> : <Redirect to="/" />} />
+                            <Route path="/requests" exact component={() => isAuthenticated ? <Requests /> : <Redirect to="/" />} />
                             <Route path="/logout" exact component={() => isAuthenticated ? <Logout /> : <Redirect to="/" />} />
-                            <Route path="/page" exact component={() => isAuthenticated ? <Page /> : <Redirect to="/" />} />
                             <Route component={NotFound} />
 
                         </Switch>
