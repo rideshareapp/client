@@ -1,13 +1,13 @@
-.wrapperExpanded {
-    --grid-width-large: 20%;
-    --grid-width-medium: 30%;
-    --grid-width-small: 100%;
+.navigationExp {
+    --grid-width-large: 20vw;
+    --grid-width-medium: 25vw;
+    --grid-width-small: 100vw;
 }
 
-.wrapperCollapsed {
-    --grid-width-large: 10%;
-    --grid-width-medium: 20%;
-    --grid-width-small: 100%;
+.navigationCol {
+    --grid-width-large: 10vw;
+    --grid-width-medium: 10vw;
+    --grid-width-small: 100vw;
 }
 
 @media only screen and (min-width:0px) and (max-width:800px) {
@@ -20,18 +20,18 @@
     .wrapperCollapsed {
         position: relative;
         display: grid;
-        grid-template-columns: var(--grid-width-small) 1fr;
+        grid-template-columns: 10vh 1fr;
         height: 100vh;
     }
     .navigation {
         display: grid;
-        visibility: hidden;
+        /* visibility: hidden; */
         grid-row: 1;
         border: 2px solid red;
     }
     .mainContent {
         display: grid;
-        width: 100%;
+        width: 100vw;
         grid-column: 1;
         grid-row: 2;
     }
@@ -41,21 +41,23 @@
     .wrapperExpanded {
         position: relative;
         display: grid;
-        grid-template-columns: var(--grid-width-medium) 1fr;
+        /* grid-template-columns: var(--grid-width-medium) 1fr; */
         height: 100vh;
     }
     .wrapperCollapsed {
         position: relative;
         display: grid;
-        grid-template-columns: var(--grid-width-medium) 1fr;
+        /* grid-template-columns: var(--grid-width-medium) 1fr; */
         height: 100vh;
     }
-    .navigation {
+    .navigationExp, .navigationCol {
         display: grid;
         grid-column: 1;
         grid-row: 1;
         overflow: hidden;
         user-select: none;
+        transition: 0.3s;
+        width: var(--grid-width-medium);
     }
     .mainContent {
         display: grid;
@@ -69,22 +71,20 @@
     .wrapperExpanded {
         position: relative;
         display: grid;
-        grid-template-columns: var(--grid-width-large) 1fr;
         height: 100vh;
-        transition: 0.5s;
     }
     .wrapperCollapsed {
         position: relative;
         display: grid;
-        grid-template-columns: var(--grid-width-large) 1fr;
         height: 100vh;
-        transition: 0.5s;
     }
-    .navigation {
+    .navigationExp, .navigationCol {
         grid-column: 1;
         grid-row: 1;
         overflow: hidden;
         user-select: none;
+        transition: 0.3s;
+        width: var(--grid-width-large);
     }
     .mainContent {
         display: grid;
@@ -92,4 +92,12 @@
         grid-column: 2;
         grid-row: 1;
     }
+}
+
+.mainContent {
+    background-color: #f3f3f6;
+}
+
+.wrapper {
+    grid-template-columns: min-content 1fr;
 }

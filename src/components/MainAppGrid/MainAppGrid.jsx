@@ -4,10 +4,9 @@ import { Navigation } from "../../components";
 
 function MainAppGrid(props) {
     const [expand, setExpand] = useState(true);
-    // TODO: Fix CSS to display grid properly at 10% on medium
     return (
-        <div className={`${expand ? styles.wrapperExpanded : styles.wrapperCollapsed}`}>
-            <div className={styles.navigation}>
+        <div className={`${expand ? styles.wrapperExpanded : styles.wrapperCollapsed} ${styles.wrapper}`}>
+            <div className={`${expand ? styles.navigationExp : styles.navigationCol} ${styles.navigation}`}>
                 <Navigation expand={expand} setExpand={setExpand} />
             </div>
             <div className={styles.mainContent}>
