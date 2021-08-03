@@ -56,6 +56,7 @@ function App() {
                             {/* <Route path="/dashboard" exact component={() => isAuthenticated ? <Dashboard /> : <Redirect to="/" />} /> */}
                             <Route path="/events" exact component={() => isAuthenticated ? <Events /> : <Redirect to="/" />} />
                             <Route path="/requests" exact component={() => isAuthenticated ? <Requests /> : <Redirect to="/" />} />
+                            <Route path="/settings" exact component={() => isAuthenticated ? <Requests /> : <Redirect to="/" />} />
                             <Route path="/logout" exact component={() => isAuthenticated ? <Logout /> : <Redirect to="/" />} />
                             <Route component={NotFound} />
 
