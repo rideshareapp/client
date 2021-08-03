@@ -38,7 +38,7 @@
 }
 
 .listItem {
-    margin: 1vh auto;
+    margin: 4vh auto;
     font-size: 1.5rem;
     font-weight: 300;
     width: 100%;
@@ -46,7 +46,17 @@
 
 .active {
     border-bottom: 2px solid black;
+    font-weight: bolder;
+    /* FROM: https://codepen.io/sosuke/pen/Pjoqqp */
+    filter: invert(40%) sepia(16%) saturate(1055%) hue-rotate(186deg) brightness(91%) contrast(91%);
+}
+
+.active:active {
     pointer-events: none;
+}
+
+.icon {
+    height: 1.2rem;
 }
 
 .collapseExpandButton {
@@ -64,10 +74,6 @@
     -webkit-user-drag: none;
 }
 
-.navExpanded {
-    transition: 0.5s;
-}
-
-.navCollapsed {
-    transition: 0.5s;
+.navExpanded .active {
+    border: none;
 }
