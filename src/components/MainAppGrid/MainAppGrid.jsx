@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./MainAppGrid.module.css";
 import { Navigation } from "../../components";
 
 function MainAppGrid(props) {
-    const [expand, setExpand] = useState(true);
+
+    function getExpandSession() {
+        try {
+            return JSON.parse(window.localStorage.getItem('expand').toLowerCase());
+        } catch (err) {
+            return true;
+        }
+    }
+
+    const [expand, setExpand] = useState(getExpandSession());
+    useEffect(() => {
+        setExpand(getExpandSession());
+    }, []);
     return (
         <div className={`${expand ? styles.wrapperExpanded : styles.wrapperCollapsed} ${styles.wrapper}`}>
             <div className={`${expand ? styles.navigationExp : styles.navigationCol} ${styles.navigation}`}>
