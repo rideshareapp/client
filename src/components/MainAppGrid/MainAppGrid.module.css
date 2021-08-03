@@ -1,11 +1,11 @@
 .navigationExp {
-    --grid-width-large: 20vw;
+    --grid-width-large: 15vw;
     --grid-width-medium: 25vw;
     --grid-width-small: 100vw;
 }
 
 .navigationCol {
-    --grid-width-large: 10vw;
+    --grid-width-large: 8vw;
     --grid-width-medium: 10vw;
     --grid-width-small: 100vw;
 }
