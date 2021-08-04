@@ -1,0 +1,7 @@
+.wrapper {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 1rem auto;
+    width: 50%;
+    text-align: center;
+}
