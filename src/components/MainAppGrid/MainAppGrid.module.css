@@ -100,4 +100,6 @@
 
 .wrapper {
     grid-template-columns: min-content 1fr;
+    overflow: hidden;
+    height: 100vh;
 }
