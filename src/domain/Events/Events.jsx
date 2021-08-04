@@ -1,19 +1,31 @@
-import React from "react";
-import { MainAppGrid } from "../../components";
+import React, { useEffect, useState } from "react";
+import { MainAppGrid, EventCard } from "../../components";
+import styles from "./Events.module.css";
 
 function Dashboard() {
     document.title = "Rideshareapp | Events";
 
+    const [data, setData] = useState([]);
+
+    useEffect(async () => {
+        const res = await fetch(`http://127.0.0.1:9000/events/getAll`, {
+            method: 'GET',
+            mode: 'cors',
+            credentials: 'include'
+        });
+        const res1 = await res.json();
+        setData(res1.details.eventList);
+    }, []);
+
+    // TODO: Authentication middleware for every fetch call
+
     let content =
-        <div className="events">
-            <div>
+        <div className={styles.wrapper}>
+            <div className={styles.title}>
                 <h1>Events</h1>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-                    ever since the 1500s, when an unknown printer took a galley of
-                    type and scrambled it to make a type specimen book.
-                </p>
+            </div>
+            <div className={styles.list}>
+                {data.map((items, i) => <EventCard event={items.event_name} date={items.event_date} key={i} />)}
             </div>
         </div>;
 

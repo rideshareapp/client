@@ -1,0 +1,20 @@
+.wrapper {
+    height: 100vh;
+    width: 100%;
+}
+
+.title {
+    height: 10vh;
+    box-shadow: 5px 1px 10px 5px #aaa;
+    border: 2px solid #f3f3f6;
+    /* border-bottom: 2px solid black; */
+    text-align: center;
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    /* background-color: #f1f1f1; */
+    height: 90vh;
+    overflow-y: scroll;
+}
