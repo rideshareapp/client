@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Login, Logout, Signup, NotFound, Events, Requests } from "./domain";
 import { AppContext } from "./libs/contextLib";
+import HandleAuth from "./libs/authLib";
 import "./App.css";
 
 
@@ -10,37 +11,13 @@ function App() {
     const [isAuthenticating, setIsAuthenticating] = useState(true);
 
     useEffect(() => {
+        async function onLoad() {
+            await HandleAuth(userIsAuthenticated);
+            setIsAuthenticating(false);
+        }
         onLoad();
     }, []);
 
-    async function onLoad() {
-        try {
-            const res = await fetch(`http://127.0.0.1:9000/auth/validToken`, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'include',
-            });
-            if (res.status === 200) {
-                userIsAuthenticated(true);
-            } else if (res.status === 401) {
-                const res = await fetch(`http://127.0.0.1:9000/auth/refresh`, {
-                    method: 'POST',
-                    mode: 'cors',
-                    credentials: 'include'
-                });
-                if (res.status === 200) {
-                    userIsAuthenticated(true);
-                } else if (res.status === 401) {
-                    userIsAuthenticated(false);
-                }
-            }
-        }
-        catch (err) {
-            alert(err);
-        }
-        setIsAuthenticating(false);
-
-    }
     return (
         !isAuthenticating && (
             <div className="App">
