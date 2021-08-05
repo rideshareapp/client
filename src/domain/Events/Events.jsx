@@ -1,21 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { MainAppGrid, EventCard } from "../../components";
 import styles from "./Events.module.css";
+import { useAppContext } from "../../libs/contextLib";
+import HandleAuth from "../../libs/authLib";
 
-function Dashboard() {
+export default function Events() {
     document.title = "Rideshareapp | Events";
+    const { userIsAuthenticated } = useAppContext();
+    const [eventList, setEventList] = useState([]);
 
-    const [data, setData] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                await HandleAuth(userIsAuthenticated);
+                const eventListRes = await fetch(`http://127.0.0.1:9000/events/getAll`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    credentials: 'include'
+                });
+                if (eventListRes.ok) {
+                    const eventListData = await eventListRes.json();
+                    setEventList(eventListData.details.eventList);
+                }
+            }
+            catch (err) {
+                alert(err);
+            }
+        }
+        fetchData();
+    }, [userIsAuthenticated]);
 
-    useEffect(async () => {
-        const res = await fetch(`http://127.0.0.1:9000/events/getAll`, {
-            method: 'GET',
-            mode: 'cors',
-            credentials: 'include'
-        });
-        const res1 = await res.json();
-        setData(res1.details.eventList);
-    }, []);
 
     // TODO: Authentication middleware for every fetch call
 
@@ -25,13 +39,13 @@ function Dashboard() {
                 <h1>Events</h1>
             </div>
             <div className={styles.list}>
-                {data.map((items, i) => <EventCard event={items.event_name} date={items.event_date} key={i} />)}
+                {eventList.map((items, i) => <EventCard event={items.event_name} date={items.event_date} key={i} />)}
             </div>
         </div>;
 
     return (
-        <MainAppGrid content={content} />
+        userIsAuthenticated && (
+            <MainAppGrid content={content} />
+        )
     );
 }
-
-export default Dashboard;
