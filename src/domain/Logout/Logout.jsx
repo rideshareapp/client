@@ -7,7 +7,7 @@ export default function Logout() {
     const { userIsAuthenticated } = useAppContext();
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:9000/users/logout`, {
+        fetch(`http://127.0.0.1:9000/auth/refresh/logout`, {
             method: 'POST',
             mode: 'cors',
             credentials: 'include',
