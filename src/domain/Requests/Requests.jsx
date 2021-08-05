@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MainAppGrid } from "../../components";
+import { useAppContext } from "../../libs/contextLib";
+import HandleAuth from "../../libs/authLib";
 
-function Dashboard() {
+export default function Requests() {
     document.title = "Rideshareapp | Requests";
+    const { userIsAuthenticated } = useAppContext();
+
+    useEffect(()=> {
+        async function fetchData() {
+            try {
+                await HandleAuth(userIsAuthenticated);
+            } catch (err) {
+                alert(err);
+            }
+        }
+        fetchData();
+    }, [userIsAuthenticated]);
 
     let content =
         <div className="requests">
@@ -21,5 +35,3 @@ function Dashboard() {
         <MainAppGrid content={content} />
     );
 }
-
-export default Dashboard;

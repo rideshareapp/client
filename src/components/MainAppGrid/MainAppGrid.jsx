@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./MainAppGrid.module.css";
 import { Navigation } from "../../components";
 
-function MainAppGrid(props) {
+export default function MainAppGrid(props) {
 
     function getExpandSession() {
         try {
@@ -27,5 +27,3 @@ function MainAppGrid(props) {
         </div>
     );
 }
-
-export default MainAppGrid;

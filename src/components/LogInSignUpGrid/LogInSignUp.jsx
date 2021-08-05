@@ -4,7 +4,7 @@ import loginbanner from "../../assets/images/loginbanner1.jpg";
 // import { useFormFields } from "../../libs/hooksLib";
 import styles from "./LogInSignUp.module.css";
 
-function LogInSignUpGrid(props) {
+export default function LogInSignUpGrid(props) {
 
     return (
         <div className={styles.wrapper}>
@@ -23,5 +23,3 @@ function LogInSignUpGrid(props) {
         </div>
     );
 }
-
-export default LogInSignUpGrid;

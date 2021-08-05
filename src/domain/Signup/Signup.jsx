@@ -8,7 +8,8 @@ import eyeSlash from "../../assets/icons/eye-slash.svg";
 // import eyeFillSlash from "../../assets/icons/eye-slash-fill.svg";
 import styles from "../../components/LogInSignUpGrid/LogInSignUp.module.css";
 import { LogInSignUpGrid } from "../../components";
-function Signup() {
+
+export default function Signup() {
     document.title = "Rideshareapp | Sign Up";
     const history = useHistory();
     const { userIsAuthenticated } = useAppContext();
@@ -104,5 +105,3 @@ function Signup() {
         <LogInSignUpGrid prompt1="Already a member?" prompt2="/login" prompt3="Log in here" form={form} />
     );
 }
-
-export default Signup;

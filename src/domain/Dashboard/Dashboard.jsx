@@ -1,7 +1,7 @@
 import React from "react";
 import { MainAppGrid } from "../../components";
 
-function Dashboard() {
+export default function Dashboard() {
     document.title = "Rideshareapp | Dashboard";
 
     let content =
@@ -28,5 +28,3 @@ function Dashboard() {
         <MainAppGrid content={content} />
     );
 }
-
-export default Dashboard;

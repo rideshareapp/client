@@ -11,7 +11,7 @@ import logout from "../../assets/icons/box-arrow-right.svg";
 import settings from "../../assets/icons/gear.svg";
 import settingsSel from "../../assets/icons/gear-fill.svg";
 
-function Navigation(props) {
+export default withRouter(function Navigation(props) {
 
     function handleExpand() {
         props.setExpand(!props.expand);
@@ -57,6 +57,4 @@ function Navigation(props) {
             </div>
         </div>
     );
-}
-
-export default withRouter(Navigation);
+});

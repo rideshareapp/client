@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./EventCard.module.css";
 
-function EventCard(props) {
+export default function EventCard(props) {
 
     return (
         <div className={styles.wrapper}>
@@ -10,5 +10,3 @@ function EventCard(props) {
         </div>
     );
 }
-
-export default EventCard;

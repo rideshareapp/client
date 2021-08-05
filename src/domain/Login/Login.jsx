@@ -5,7 +5,7 @@ import { useAppContext } from "../../libs/contextLib";
 import styles from "../../components/LogInSignUpGrid/LogInSignUp.module.css";
 import { LogInSignUpGrid } from "../../components";
 
-function Login() {
+export default function Login() {
     document.title = "Rideshareapp | Log In";
     const history = useHistory();
     const { userIsAuthenticated } = useAppContext();
@@ -61,5 +61,3 @@ function Login() {
         <LogInSignUpGrid prompt1="Not a member?" prompt2="/signup" prompt3="Sign up here" form={form} />
     );
 }
-
-export default Login;
