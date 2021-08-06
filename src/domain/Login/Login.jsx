@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
 import styles from "../../components/LogInSignUpGrid/LogInSignUp.module.css";
@@ -7,7 +7,6 @@ import { LogInSignUpGrid } from "../../components";
 
 export default function Login() {
     document.title = "Rideshareapp | Log In";
-    const history = useHistory();
     const { userIsAuthenticated } = useAppContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,7 +31,7 @@ export default function Login() {
             });
             if (res.status === 200) {
                 userIsAuthenticated(true);
-                history.push("/");
+                return <Redirect to="/" />;
             }
         } catch (err) {
             alert(err);

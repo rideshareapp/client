@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Prompt } from "react-router-dom";
+import { Prompt, Redirect } from "react-router-dom";
 import { useAppContext } from "../../libs/contextLib";
 // import { useFormFields } from "../../libs/hooksLib";
 import eye from "../../assets/icons/eye.svg";
@@ -11,7 +11,6 @@ import { LogInSignUpGrid } from "../../components";
 
 export default function Signup() {
     document.title = "Rideshareapp | Sign Up";
-    const history = useHistory();
     const { userIsAuthenticated } = useAppContext();
     const [first, setFirst] = useState("");
     const [last, setLast] = useState("");
@@ -54,7 +53,7 @@ export default function Signup() {
             });
             if (res.status === 200) {
                 userIsAuthenticated(true);
-                history.push("/");
+                return <Redirect to="/" />;
             }
             if (res.status === 409) {
                 alert("User already exists");
