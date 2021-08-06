@@ -20,7 +20,7 @@ export default function Events() {
                 });
                 if (eventListRes.ok) {
                     const eventListData = await eventListRes.json();
-                    setEventList(eventListData.details.eventList);
+                        setEventList(eventListData.details.eventList);
                 }
             }
             catch (err) {
@@ -29,9 +29,6 @@ export default function Events() {
         }
         fetchData();
     }, [userIsAuthenticated]);
-
-
-    // TODO: Authentication middleware for every fetch call
 
     let content =
         <div className={styles.wrapper}>
@@ -44,8 +41,6 @@ export default function Events() {
         </div>;
 
     return (
-        userIsAuthenticated && (
             <MainAppGrid content={content} />
-        )
     );
 }
