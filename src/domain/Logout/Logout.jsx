@@ -1,20 +1,21 @@
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import { useAppContext } from "../../libs/contextLib";
 
 export default function Logout() {
-    const history = useHistory();
+    document.title = "Rideshareapp | Log Out";
     const { userIsAuthenticated } = useAppContext();
 
     useEffect(() => {
+        document.cookie = "REFRESH_TOKEN_VALID=;max-age=0;";
         fetch(`http://127.0.0.1:9000/auth/refresh/logout`, {
             method: 'POST',
             mode: 'cors',
             credentials: 'include',
         });
         userIsAuthenticated(false);
-        history.push("/login");
-    }, [userIsAuthenticated, history]);
+        return <Redirect to="/" />;
+    }, [userIsAuthenticated]);
 
     return (
         null
