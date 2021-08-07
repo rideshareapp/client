@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MainAppGrid } from "../../components";
 import { useAppContext } from "../../libs/contextLib";
 import HandleAuth from "../../libs/authLib";
@@ -6,11 +6,22 @@ import HandleAuth from "../../libs/authLib";
 export default function Settings() {
     document.title = "Rideshareapp | Settings";
     const { userIsAuthenticated } = useAppContext();
+    const [user, setUser] = useState({});
 
-    useEffect(()=> {
+    useEffect(() => {
         async function fetchData() {
             try {
                 await HandleAuth(userIsAuthenticated);
+                const userDataRes = await fetch('http://127.0.0.1:9000/users/profile', {
+                    method: 'GET',
+                    mode: 'cors',
+                    credentials: 'include',
+                });
+                if (userDataRes.ok) {
+                    // console.log(await userDataRes.json());
+                    const userData = await userDataRes.json();
+                    setUser(userData.details.user_info);
+                }
             } catch (err) {
                 alert(err);
             }
@@ -22,12 +33,10 @@ export default function Settings() {
         <div className="settings">
             <div>
                 <h1>Settings</h1>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-                    ever since the 1500s, when an unknown printer took a galley of
-                    type and scrambled it to make a type specimen book.
-                </p>
+                <p>First: {user.first}</p>
+                <p>Last: {user.last}</p>
+                <p>Phone: {user.phone}</p>
+                <p>Email: {user.email}</p>
             </div>
         </div>;
 
