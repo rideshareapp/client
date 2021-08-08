@@ -1,7 +1,12 @@
 .wrapper {
-    border: 2px solid black;
-    border-radius: 5px;
+    /* border: 2px solid black; */
+    border-radius: 20px;
+    font-size: 0.8rem;
+    padding: 1rem;
     margin: 1rem auto;
     width: 50%;
     text-align: center;
+    background-color: white;
+    box-shadow: 1px 1px 10px 1px #aaa;
+    /* z-index: 0; */
 }
