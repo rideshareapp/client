@@ -160,6 +160,8 @@ input[class^="LogInSignUp_inputType"]:-moz-placeholder {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    background: rgb(193, 190, 255);
+    background: linear-gradient(45deg, rgba(193, 190, 255, 1) 0%, rgba(104, 159, 246, 1) 100%);
 }
 
 .buttonTypeSubmit:disabled {
@@ -174,7 +176,8 @@ input[class^="LogInSignUp_inputType"]:-moz-placeholder {
 }
 
 .buttonTypeSubmit:hover, .buttonTypeSubmit:focus {
-    background-color: #787EA2;
+    /* background-color: #787EA2; */
+    filter: saturate(200%);
     outline: none;
 }
 
