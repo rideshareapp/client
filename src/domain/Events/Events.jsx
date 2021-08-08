@@ -8,6 +8,7 @@ export default function Events() {
     document.title = "Rideshareapp | Events";
     const { userIsAuthenticated } = useAppContext();
     const [eventList, setEventList] = useState([]);
+    // TODO: Add sort and filter states
 
     useEffect(() => {
         async function fetchData() {
@@ -19,8 +20,9 @@ export default function Events() {
                     credentials: 'include'
                 });
                 if (eventListRes.ok) {
-                    const eventListData = await eventListRes.json();
-                        setEventList(eventListData.details.eventList);
+                    const eventListData = (await eventListRes.json()).details.eventList;
+                    eventListData.sort((a, b) => { return new Date(a.event_date) - new Date(b.event_date); });
+                    setEventList(eventListData);
                 }
             }
             catch (err) {
@@ -36,11 +38,13 @@ export default function Events() {
                 <h1>Events</h1>
             </div>
             <div className={styles.list}>
-                {eventList.map((items, i) => <EventCard event={items.event_name} date={items.event_date} key={i} />)}
+                {eventList.map((items, i) => (
+                    <EventCard id={items.id} name={items.org_name} event={items.event_name} description={items.event_description} location={items.event_location} date={items.event_date} include_time={items.include_time} key={i} />
+                ))}
             </div>
         </div>;
 
     return (
-            <MainAppGrid content={content} />
+        <MainAppGrid content={content} />
     );
 }
