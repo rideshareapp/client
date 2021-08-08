@@ -1,13 +1,9 @@
 .sidebar {
     height: 100vh;
-    /* overflow: hidden; */
     display: grid;
     grid-template-rows: 1fr 50% 1fr;
-    /* margin: 2vh; */
     margin-bottom: 100px;
     box-sizing: border-box;
-    /* border: 2px solid black; */
-    /* border-radius: 5px; */
     transition: 0.5s;
     width: 100%;
 }
@@ -19,6 +15,11 @@
     justify-content: center;
     align-items: center;
     font-size: 0.7rem;
+    color: white;
+}
+
+.logo img {
+    width: 2vw;
 }
 
 .nav {
@@ -38,17 +39,49 @@
 }
 
 .listItem {
-    margin: 4vh auto;
+    margin: 5vh auto;
     font-size: 1.5rem;
     font-weight: 300;
     width: 100%;
+    /* padding: 1vh 0; */
+}
+
+.listItem a {
+    color: white;
+}
+
+
+.listItem a:hover {
+    transition: 0.1s;
+    color: #ddd;
+}
+
+.icon:hover {
+    /* FROM: https://codepen.io/sosuke/pen/Pjoqqp */
+    filter: invert(99%) sepia(0%) saturate(1462%) hue-rotate(176deg) brightness(106%) contrast(73%);
+    /* #DDD */
+}
+
+.listItem a:hover>.icon {
+    /* FROM: https://codepen.io/sosuke/pen/Pjoqqp */
+    filter: invert(99%) sepia(0%) saturate(1462%) hue-rotate(176deg) brightness(106%) contrast(73%);
+    /* #DDD */
 }
 
 .active {
-    border-bottom: 2px solid black;
-    font-weight: bolder;
-    /* FROM: https://codepen.io/sosuke/pen/Pjoqqp */
-    filter: invert(40%) sepia(16%) saturate(1055%) hue-rotate(186deg) brightness(91%) contrast(91%);
+    border-bottom: 2px solid white;
+    font-weight: 600;
+    /* background-color: rgba(255, 255, 255, 0.5);
+    padding: 1vh 1vw;
+    border-radius: 5px; */
+}
+
+.active:hover a {
+    color: white;
+}
+
+.active:hover .icon {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(149deg) brightness(101%) contrast(113%) !important;
 }
 
 .active:active {
@@ -56,7 +89,8 @@
 }
 
 .icon {
-    height: 1.2rem;
+    height: 1.15rem;
+    filter: invert(1);
 }
 
 .collapseExpandButton {
@@ -67,13 +101,15 @@
 }
 
 .collapseExpandButton img {
-    border: 1.5px solid #1f1f1f;
-    padding: 0.5rem;
+    border: 1.5px solid #0f0f0f;
+    padding: 0.4rem;
     border-radius: 50%;
     width: 100%;
     -webkit-user-drag: none;
+    filter: invert(1);
 }
 
 .navExpanded .active {
     border: none;
+    /* background-color: var(--nav-color); */
 }
