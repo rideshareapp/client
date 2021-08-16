@@ -10,6 +10,7 @@ import requestsIconSel from "../../assets/icons/chat-square-quote-fill.svg";
 import logout from "../../assets/icons/box-arrow-right.svg";
 import settings from "../../assets/icons/gear.svg";
 import settingsSel from "../../assets/icons/gear-fill.svg";
+import logo from "../../assets/icons/logo.png";
 
 export default withRouter(function Navigation(props) {
 
@@ -34,7 +35,7 @@ export default withRouter(function Navigation(props) {
     return (
         <div className={`${styles.sidebar} ${setNav()}`}>
             <div className={styles.logo}>
-                <h1>{props.expand ? "Rideshareapp" : "R"}</h1>
+                {props.expand ? <div><img src={logo}/><h1>Rideshareapp</h1></div> : <img src={logo}/>}
             </div>
             <nav className={styles.nav}>
                 <ul className={styles.list}>
