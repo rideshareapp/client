@@ -5,8 +5,8 @@
 
 .title {
     height: 10vh;
-    box-shadow: 5px 1px 10px 5px #aaa;
-    border: 2px solid #f3f3f6;
+    /* box-shadow: 5px 1px 10px 5px #aaa; */
+    border: 2px solid #F5F7FB;
     /* border-bottom: 2px solid black; */
     text-align: center;
     width: 100%;
