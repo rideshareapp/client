@@ -38,9 +38,13 @@ export default function Events() {
                 <h1>Events</h1>
             </div>
             <div className={styles.list}>
-                {eventList.map((items, i) => (
-                    <EventCard id={items.id} name={items.org_name} event={items.event_name} description={items.event_description} location={items.event_location} date={items.event_date} include_time={items.include_time} key={i} />
-                ))}
+                {eventList.length > 0 ?
+                    eventList.map((items, i) => (
+                        <EventCard id={items.id} name={items.org_name} event={items.event_name} description={items.event_description} location={items.event_location} date={items.event_date} include_time={items.include_time} key={i} />
+                    ))
+                    :
+                    <div>No events found!</div>
+                }
             </div>
         </div>;
 
