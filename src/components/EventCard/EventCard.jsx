@@ -17,7 +17,7 @@ export default function EventCard(props) {
     }, [props.date]);
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} onClick={props.onClick}>
             <div className={styles.dateTime}>
                 <div className={styles.date}>
                     <div className={styles.month}>{month}</div>
