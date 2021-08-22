@@ -1,0 +1,105 @@
+@media only screen and (min-width:0px) and (max-width:800px) {}
+
+@media only screen and (min-width:800px) and (max-width:1500px) {
+    .wrapper {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width:1500px) {
+    .wrapper {
+        width: 40%;
+    }
+}
+
+.wrapper {
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    font-size: 0.8rem;
+    /* padding: 1rem; */
+    margin: 1rem auto;
+    /* padding: 1rem; */
+    /* width: 30%; */
+    /* text-align: center; */
+    background-color: white;
+    box-shadow: 1px 1px 10px 1px #aaa;
+    /* z-index: 0; */
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+}
+
+.dateTime {
+    display: grid;
+    grid-template-rows: auto;
+    text-align: center;
+    width: 7rem;
+    margin: 1rem 1rem 0 1rem;
+}
+
+.date {
+    background-color: #f1f1f1;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.month {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.day {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    line-height: 1;
+}
+
+.time {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1rem;
+}
+
+.info {
+    margin-right: 1rem;
+}
+
+.glance {
+    margin-top: 1rem;
+}
+
+.glance h1 {
+    line-height: 1;
+    margin-bottom: 0;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.glance h2 {
+    line-height: 1;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-weight: 200;
+    font-size: 1.2rem;
+}
+
+.glance img {
+    height: 0.8rem;
+    margin-right: 0.2rem;
+    filter: opacity(50%)
+}
+
+.glance h3 {
+    font-size: 1rem;
+    margin-top: 0.8rem;
+    font-weight: 400;
+}
+
+.description {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
