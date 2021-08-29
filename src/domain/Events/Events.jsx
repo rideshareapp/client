@@ -10,6 +10,7 @@ export default function Events() {
     const [eventList, setEventList] = useState([]);
     const [active, setActive] = useState(null);
     // TODO: Add sort and filter states
+    // TODO: Add event modals to allow user to request a ride and provide geolocation and passenger information
 
     useEffect(() => {
         async function fetchData() {
@@ -33,20 +34,38 @@ export default function Events() {
         fetchData();
     }, [userIsAuthenticated]);
 
-    function handleClick(i) {
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
+    function handleKeyDown(event) {
+        if (event.key === "Escape") {
+            setActive(null);
+        }
+    }
+    function handleCardClick(i) {
         setActive(eventList[i]);
+    }
+
+    function handleModalExitClick(event) {
+        if (event.target === event.currentTarget) {
+            setActive(null);
+        }
     }
 
     let content =
         <div className={styles.wrapper}>
-            {active !== null ? <EventModal /> : null}
+            {active !== null ? <EventModal onClick={handleModalExitClick} name={active.org_name} event={active.event_name} description={active.event_description} location={active.event_location} date={active.event_date} include_time={active.include_time} /> : null}
             <div className={styles.title}>
                 <h1>Events</h1>
             </div>
             <div className={styles.list}>
                 {eventList.length > 0 ?
                     eventList.map((items, i) => (
-                        <EventCard onClick={() => handleClick(i)} id={items.id} name={items.org_name} event={items.event_name} description={items.event_description} location={items.event_location} date={items.event_date} include_time={items.include_time} key={i} />
+                        <EventCard onClick={() => handleCardClick(i)} id={items.id} name={items.org_name} event={items.event_name} description={items.event_description} location={items.event_location} date={items.event_date} include_time={items.include_time} key={i} />
                     ))
                     :
                     <div>No events found!</div>
