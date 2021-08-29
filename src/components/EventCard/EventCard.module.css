@@ -28,6 +28,10 @@
     grid-template-columns: 9rem 1fr;
 }
 
+.wrapper:hover {
+    cursor: pointer;
+}
+
 .dateTime {
     display: grid;
     grid-template-rows: auto;
@@ -90,7 +94,8 @@
 .glance img {
     height: 0.8rem;
     margin-right: 0.2rem;
-    filter: opacity(50%)
+    filter: opacity(50%);
+    z-index: 0;
 }
 
 .glance h3 {
