@@ -32,6 +32,8 @@ export default function Login() {
             if (res.status === 200) {
                 userIsAuthenticated(true);
                 return <Redirect to="/" />;
+            } else if (res.status === 401 || res.status === 409) {
+                alert("Incorrect email or password");
             }
         } catch (err) {
             alert(err);
